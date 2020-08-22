@@ -12,6 +12,12 @@ fun main() {
     println(text)
     println(replaceMultipleWhiteSpace(text))
     println(text.replaceMultipleWhiteSpaceEx())
+
+    var s1 = Student(74, "Rizan")
+    var s2 = Student (97, "Nazir")
+
+    println("Is Excellent student :" + s1.isExcellent())
+    println("Is Excellent student :" + s2.isExcellent())
 }
 
 //Helper or Util function
@@ -25,3 +31,10 @@ fun String.replaceMultipleWhiteSpaceEx() : String{
     var regex = Regex("\\s+")
     return regex.replace(this, " ")
 }
+
+//Extension Function, Here assume Student class is not our class,
+fun Student.isExcellent():Boolean{
+ return this.mark > 90
+}
+
+data class Student(var mark : Int, var name:String)
